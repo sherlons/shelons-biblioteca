@@ -1,10 +1,17 @@
 package com.trabajosSherlons.biblioteca.modelos;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.List;
+
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record DatosLibro(
-        @JsonAlias("Title") String titulo,
-        @JsonAlias("totalSeasons") Integer totalDeTemporadas,
-        @JsonAlias("imdbRating") String evaluacion,
-        @JsonAlias("Language") String idioma,
+        @JsonAlias("title") String titulo,
+        @JsonAlias("authors") List<DatosAutor> autor,
+        @JsonAlias ("languages") List<String> idioma,
+        @JsonAlias("download_count") Double numeroDescargas
+
 ) {
 }
